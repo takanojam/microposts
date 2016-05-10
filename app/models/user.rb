@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  before_action { self.email = self.email.downcase }
+  before_save { self.email = self.email.downcase }
   validates :name, presence: true, length: { maximum: 50}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 225},
@@ -10,5 +10,5 @@ class User < ActiveRecord::Base
   validates :location, allow_blank: true,
                        length: { minimum: 2, maximum: 20 },
                        on: :update
-    has_secure_password
+  has_secure_password
 end
