@@ -26,7 +26,7 @@
       <ul class="users follow">
         <% @users.each do |user| %>
         <li>
-        <%= user.name %>
+        <%= link_to user.name, @user %>
         </li>
         <% end %>      
       </ul>
